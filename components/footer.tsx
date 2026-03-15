@@ -20,7 +20,7 @@ export function Footer() {
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="#timeline" className="hover:text-accent transition-colors">→ 12 Ngày Đêm</a></li>
               <li><a href="#heroes" className="hover:text-accent transition-colors">→ Những Người Hùng</a></li>
-              <li><a href="#quiz" className="hover:text-accent transition-colors">→ Kiểm Tra Kiến Thức</a></li>
+              <li><a href="#quiz" className="hover:text-accent transition-colors">→ Quiz</a></li>
             </ul>
           </div>
 

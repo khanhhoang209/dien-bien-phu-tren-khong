@@ -20,7 +20,7 @@ export function Tabs() {
     { id: 'overview', label: 'Tổng Quan', icon: '🏛️' },
     { id: 'phases', label: 'Các Giai Đoạn', icon: '📅' },
     { id: 'about', label: 'Về Chúng Tôi', icon: 'ℹ️' },
-    { id: 'quiz', label: 'Kiểm Tra Kiến Thức', icon: '❓' },
+    { id: 'quiz', label: 'Quiz', icon: '❓' },
   ]
 
   return (
@@ -107,7 +107,7 @@ export function Tabs() {
             <div className="py-16 px-4 bg-background">
               <div className="max-w-6xl mx-auto">
                 <h1 className="text-6xl font-bold text-center mb-4">
-                  <span className="text-accent">KIỂM TRA</span> KIẾN THỨC
+                  <span className="text-accent">QUIZ</span>
                 </h1>
                 <div className="h-1 w-32 bg-accent mx-auto mb-8"></div>
               </div>
