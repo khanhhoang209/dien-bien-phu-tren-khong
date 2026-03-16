@@ -41,7 +41,7 @@ export function BattleBackground() {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
-      
+
       // Re-initialize searchlights on resize
       searchlightsRef.current = Array.from({ length: 4 }).map((_, i) => ({
         id: i,
@@ -49,7 +49,7 @@ export function BattleBackground() {
         angle: Math.PI + (Math.random() - 0.5),
         targetAngle: Math.PI + (Math.random() - 0.5),
         speed: 0.002 + Math.random() * 0.003,
-        width: 40 + Math.random() * 40
+        width: 40 + Math.random() * 40,
       }))
     }
 
@@ -58,7 +58,15 @@ export function BattleBackground() {
 
     let animationId: number
 
-    const drawB52 = (x: number, y: number, opacity: number, rotation: number, scale: number, directionX: number, isDamaged: boolean) => {
+    const drawB52 = (
+      x: number,
+      y: number,
+      opacity: number,
+      rotation: number,
+      scale: number,
+      directionX: number,
+      isDamaged: boolean,
+    ) => {
       ctx!.save()
       ctx!.globalAlpha = opacity
       ctx!.translate(x, y)
@@ -73,7 +81,7 @@ export function BattleBackground() {
       // --- B-52 DESIGN ---
       // Nose points strictly to the RIGHT (+X)
       // Tail is completely on the LEFT (-X)
-      
+
       // Fuselage (Body)
       ctx!.beginPath()
       // Left (-25) is Tail, Right (35) is Nose start
@@ -127,7 +135,7 @@ export function BattleBackground() {
       ctx!.lineTo(-40, -15)
       ctx!.lineTo(-30, 0)
       ctx!.fill()
-      
+
       ctx!.beginPath()
       ctx!.moveTo(-20, 0)
       ctx!.lineTo(-35, 15)
@@ -143,16 +151,16 @@ export function BattleBackground() {
       ctx!.fill()
 
       if (isDamaged) {
-          // Fire effect on damaged plane - Behind cockpit
-          const fireSize = 5 + Math.random() * 8
-          ctx!.fillStyle = '#ff3300'
-          ctx!.beginPath()
-          ctx!.arc(0, 0, fireSize, 0, Math.PI * 2)
-          ctx!.fill()
-          ctx!.fillStyle = '#ffaa00'
-          ctx!.beginPath()
-          ctx!.arc(0, 0, fireSize * 0.5, 0, Math.PI * 2)
-          ctx!.fill()
+        // Fire effect on damaged plane - Behind cockpit
+        const fireSize = 5 + Math.random() * 8
+        ctx!.fillStyle = '#ff3300'
+        ctx!.beginPath()
+        ctx!.arc(0, 0, fireSize, 0, Math.PI * 2)
+        ctx!.fill()
+        ctx!.fillStyle = '#ffaa00'
+        ctx!.beginPath()
+        ctx!.arc(0, 0, fireSize * 0.5, 0, Math.PI * 2)
+        ctx!.fill()
       }
 
       ctx!.restore()
@@ -167,7 +175,7 @@ export function BattleBackground() {
       // SAM-2 Missile
       ctx!.fillStyle = '#d14'
       ctx!.fillRect(-8, -1.5, 16, 3)
-      
+
       // Nose cone
       ctx!.beginPath()
       ctx!.moveTo(8, -1.5)
@@ -190,50 +198,51 @@ export function BattleBackground() {
     const drawExplosion = (x: number, y: number, radius: number, opacity: number) => {
       ctx!.save()
       ctx!.globalAlpha = opacity
-      
+
       const grad = ctx!.createRadialGradient(x, y, 0, x, y, radius)
       grad.addColorStop(0, '#fff')
       grad.addColorStop(0.2, '#ff0')
       grad.addColorStop(0.4, '#f90')
       grad.addColorStop(1, 'transparent')
-      
+
       ctx!.fillStyle = grad
       ctx!.beginPath()
       ctx!.arc(x, y, radius, 0, Math.PI * 2)
       ctx!.fill()
-      
+
       ctx!.restore()
     }
 
     const drawSearchlight = (light: Searchlight) => {
       ctx!.save()
-      
+
       const gradient = ctx!.createLinearGradient(
-        light.baseX, canvas.height,
+        light.baseX,
+        canvas.height,
         light.baseX + Math.cos(light.angle) * canvas.height * 1.5,
-        canvas.height + Math.sin(light.angle) * canvas.height * 1.5
+        canvas.height + Math.sin(light.angle) * canvas.height * 1.5,
       )
-      
+
       const beamColor = 'rgba(230, 230, 255, 0.08)'
       gradient.addColorStop(0, beamColor)
       gradient.addColorStop(0.5, 'rgba(230, 230, 255, 0.04)')
       gradient.addColorStop(1, 'transparent')
-      
+
       ctx!.fillStyle = gradient
       ctx!.beginPath()
       ctx!.moveTo(light.baseX - 5, canvas.height)
       ctx!.lineTo(light.baseX + 5, canvas.height)
       ctx!.lineTo(
         light.baseX + Math.cos(light.angle - 0.1) * canvas.height * 1.5,
-        canvas.height + Math.sin(light.angle - 0.1) * canvas.height * 1.5
+        canvas.height + Math.sin(light.angle - 0.1) * canvas.height * 1.5,
       )
       ctx!.lineTo(
         light.baseX + Math.cos(light.angle + 0.1) * canvas.height * 1.5,
-        canvas.height + Math.sin(light.angle + 0.1) * canvas.height * 1.5
+        canvas.height + Math.sin(light.angle + 0.1) * canvas.height * 1.5,
       )
       ctx!.closePath()
       ctx!.fill()
-      
+
       ctx!.restore()
     }
 
@@ -252,7 +261,7 @@ export function BattleBackground() {
           maxLifetime: 1500,
           rotation: 0,
           scale: 0.5 + Math.random() * 0.3,
-          color: 'active'
+          color: 'active',
         })
       } else if (type === 'missile') {
         particlesRef.current.push({
@@ -281,18 +290,18 @@ export function BattleBackground() {
           scale: options.scale || 1,
         })
       } else if (type === 'smoke') {
-          particlesRef.current.push({
-              id,
-              x: options.x,
-              y: options.y,
-              vx: (Math.random() - 0.5) * 1,
-              vy: -Math.random() * 1,
-              type: 'smoke',
-              lifetime: 0,
-              maxLifetime: 40 + Math.random() * 30,
-              rotation: Math.random() * Math.PI * 2,
-              scale: options.scale || 1,
-          })
+        particlesRef.current.push({
+          id,
+          x: options.x,
+          y: options.y,
+          vx: (Math.random() - 0.5) * 1,
+          vy: -Math.random() * 1,
+          type: 'smoke',
+          lifetime: 0,
+          maxLifetime: 40 + Math.random() * 30,
+          rotation: Math.random() * Math.PI * 2,
+          scale: options.scale || 1,
+        })
       }
     }
 
@@ -304,7 +313,7 @@ export function BattleBackground() {
       frameCount++
 
       // Update Searchlights
-      searchlightsRef.current.forEach(light => {
+      searchlightsRef.current.forEach((light) => {
         if (Math.abs(light.angle - light.targetAngle) < 0.01) {
           light.targetAngle = Math.PI + (Math.random() - 0.5) * 1.2
         }
@@ -314,23 +323,25 @@ export function BattleBackground() {
 
       // Add planes
       if (frameCount % 300 === 0) addParticle('plane')
-      
+
       // Auto-launch missiles towards planes
       if (frameCount % 180 === 0) {
-        const planes = particlesRef.current.filter(p => p.type === 'plane' && p.color === 'active')
+        const planes = particlesRef.current.filter(
+          (p) => p.type === 'plane' && p.color === 'active',
+        )
         if (planes.length > 0) {
           const target = planes[Math.floor(Math.random() * planes.length)]
           addParticle('missile', {
             x: Math.random() * canvas.width,
             tx: target.x + target.vx * 60,
-            rotation: Math.atan2(-10, (target.x - Math.random() * canvas.width))
+            rotation: Math.atan2(-10, target.x - Math.random() * canvas.width),
           })
         }
       }
 
       for (let i = particlesRef.current.length - 1; i >= 0; i--) {
         const p = particlesRef.current[i]
-        
+
         p.lifetime++
         p.x += p.vx
         p.y += p.vy
@@ -338,10 +349,10 @@ export function BattleBackground() {
         // Missile gravity and logic
         if (p.type === 'missile') {
           p.rotation = Math.atan2(p.vy, p.vx)
-          
+
           // Collision detection with planes
-          particlesRef.current.forEach(other => {
-            if (other.type === 'plane' && other.color === 'active') { 
+          particlesRef.current.forEach((other) => {
+            if (other.type === 'plane' && other.color === 'active') {
               const dx = p.x - other.x
               const dy = p.y - other.y
               const dist = Math.sqrt(dx * dx + dy * dy)
@@ -352,7 +363,7 @@ export function BattleBackground() {
                 other.vy = 1.0 + Math.random() * 1.0
                 other.color = 'destroyed'
                 // Spin downwards based on initial travel direction
-                other.rotation = (other.vx > 0 ? 1 : -1) * Math.PI / 6
+                other.rotation = ((other.vx > 0 ? 1 : -1) * Math.PI) / 6
                 p.lifetime = p.maxLifetime
               }
             }
@@ -364,31 +375,23 @@ export function BattleBackground() {
 
         if (p.type === 'plane') {
           const isDamaged = p.color === 'destroyed'
-          
+
           // CRUCIAL FIX: Direction strictly based on Velocity X
           // if vx > 0 -> traveling right -> scaleX is 1
           // if vx < 0 -> traveling left  -> scaleX is -1
           const directionX = Math.sign(p.vx) || 1
-          
-          drawB52(
-            p.x, 
-            p.y, 
-            opacity, 
-            p.rotation, 
-            p.scale, 
-            directionX, 
-            isDamaged
-          )
-          
+
+          drawB52(p.x, p.y, opacity, p.rotation, p.scale, directionX, isDamaged)
+
           // Engine contrails for active plains (gives clear sense of movement forwards)
           if (!isDamaged && frameCount % 6 === 0) {
-              // Spawn faint smoke behind the tail
-              const tailXOffset = directionX * -30 * p.scale
-              addParticle('smoke', { x: p.x + tailXOffset, y: p.y, scale: p.scale * 0.3 })
+            // Spawn faint smoke behind the tail
+            const tailXOffset = directionX * -30 * p.scale
+            addParticle('smoke', { x: p.x + tailXOffset, y: p.y, scale: p.scale * 0.3 })
           }
 
           if (isDamaged && frameCount % 4 === 0) {
-              addParticle('smoke', { x: p.x, y: p.y, scale: p.scale })
+            addParticle('smoke', { x: p.x, y: p.y, scale: p.scale })
           }
 
           if (p.y > canvas.height + 100 || p.x < -300 || p.x > canvas.width + 300) {
@@ -405,16 +408,16 @@ export function BattleBackground() {
             particlesRef.current.splice(i, 1)
           }
         } else if (p.type === 'smoke') {
-            ctx!.save()
-            ctx!.globalAlpha = opacity * 0.3
-            ctx!.fillStyle = '#666'
-            ctx!.beginPath()
-            ctx!.arc(p.x, p.y, (1 + p.lifetime / 10) * p.scale * 5, 0, Math.PI * 2)
-            ctx!.fill()
-            ctx!.restore()
-            if (p.lifetime > p.maxLifetime) {
-                particlesRef.current.splice(i, 1)
-            }
+          ctx!.save()
+          ctx!.globalAlpha = opacity * 0.3
+          ctx!.fillStyle = '#666'
+          ctx!.beginPath()
+          ctx!.arc(p.x, p.y, (1 + p.lifetime / 10) * p.scale * 5, 0, Math.PI * 2)
+          ctx!.fill()
+          ctx!.restore()
+          if (p.lifetime > p.maxLifetime) {
+            particlesRef.current.splice(i, 1)
+          }
         }
       }
 
@@ -432,9 +435,8 @@ export function BattleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
       style={{ background: 'transparent' }}
     />
   )
 }
-

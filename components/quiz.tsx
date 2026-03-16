@@ -101,7 +101,7 @@ export function Quiz() {
   if (quizFinished) {
     const percentage = (score / quizQuestions.length) * 100
     return (
-      <section className="py-20 px-4 bg-background">
+      <section className="py-20 px-4 bg-transparent">
         <div className="max-w-2xl mx-auto">
           <div className="bg-card rounded-lg p-12 border border-accent/50 text-center">
             <h2 className="text-4xl font-bold text-accent mb-4">Hoàn Thành!</h2>
@@ -136,7 +136,7 @@ export function Quiz() {
   const isCorrect = selectedAnswer === question.correct
 
   return (
-    <section id="quiz" className="py-20 px-4 bg-background scroll-mt-20">
+    <section className="py-20 px-4 bg-transparent">
       <div className="max-w-2xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-12">

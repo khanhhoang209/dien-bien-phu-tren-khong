@@ -64,7 +64,7 @@ export function Heroes() {
   const [flipped, setFlipped] = useState<number | null>(null)
 
   return (
-    <section id="heroes" className="py-20 px-4 bg-background scroll-mt-20">
+    <section id="heroes" className="py-20 px-4 bg-transparent scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">
@@ -85,20 +85,28 @@ export function Heroes() {
           {heroes.map((hero) => (
             <div
               key={hero.id}
-              className="h-96 cursor-pointer perspective"
+              className="h-96 cursor-pointer"
+              style={{ perspective: '1000px' }}
               onClick={() => setFlipped(flipped === hero.id ? null : hero.id)}
             >
               <div
                 className="relative w-full h-full transition-transform duration-500"
                 style={{
                   transformStyle: 'preserve-3d',
+                  WebkitTransformStyle: 'preserve-3d',
                   transform: flipped === hero.id ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                  willChange: 'transform',
                 }}
               >
                 {/* Front - Image side */}
                 <div
-                  className="absolute w-full h-full bg-card rounded-lg flex flex-col justify-end overflow-hidden border-2 border-accent/50 group"
-                  style={{ backfaceVisibility: 'hidden' }}
+                  className="absolute inset-0 w-full h-full bg-card rounded-lg flex flex-col justify-end overflow-hidden border-2 border-accent/50 group"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(0deg) translateZ(1px)',
+                    WebkitTransform: 'rotateY(0deg) translateZ(1px)',
+                  }}
                 >
                   {/* Background Image */}
                   <div
@@ -120,10 +128,12 @@ export function Heroes() {
 
                 {/* Back - Info side */}
                 <div
-                  className="absolute w-full h-full bg-card rounded-lg p-6 flex flex-col justify-between overflow-hidden border-2 border-accent/50"
+                  className="absolute inset-0 w-full h-full bg-card rounded-lg p-6 flex flex-col justify-between overflow-hidden border-2 border-accent/50"
                   style={{
                     backfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg) translateZ(1px)',
+                    WebkitTransform: 'rotateY(180deg) translateZ(1px)',
                   }}
                 >
                   <div>

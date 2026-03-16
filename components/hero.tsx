@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-start justify-center overflow-hidden pt-8 md:pt-12">
       {/* Background elements */}
       <div className="absolute inset-0">
         {/* Gradient background */}
@@ -13,11 +13,6 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-        {/* Top decorative line */}
-        <div className="flex justify-center mb-8">
-          <div className="h-1 w-32 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
-        </div>
-
         {/* Main title - Extra large and bold */}
         <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight text-pretty text-shadow-lg">
           <span className="block text-accent">CHIẾN THẮNG</span>
