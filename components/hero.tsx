@@ -2,9 +2,9 @@ export function Hero() {
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/80"></div>
+        {/*<div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/80"></div> */}
 
         {/* Radial glow effects */}
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-96 h-96 rounded-full bg-accent/5 blur-3xl"></div>
