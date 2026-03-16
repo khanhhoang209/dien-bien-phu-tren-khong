@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       content: m.content,
     }));
 
-    const result = await streamText({
+    const result = streamText({
       model: google("gemini-2.5-flash"),
 
       system: `Bạn là một Chuyên gia Lịch sử uyên bác, am hiểu sâu sắc về lịch sử Việt Nam và thế giới, đặc biệt là chiến dịch "Điện Biên Phủ trên không" (12 ngày đêm năm 1972).

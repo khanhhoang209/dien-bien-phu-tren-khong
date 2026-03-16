@@ -63,7 +63,7 @@ export function Timeline() {
   const [selectedEvent, setSelectedEvent] = useState<number | null>(null)
 
   return (
-    <section id="timeline" className="py-20 px-4 bg-background">
+    <section id="timeline" className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">

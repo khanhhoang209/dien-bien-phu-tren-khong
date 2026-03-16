@@ -1,6 +1,6 @@
 export function Context() {
   return (
-    <section id="context" className="py-20 px-4 bg-background scroll-mt-20">
+    <section id="context" className="py-20 px-4 scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">

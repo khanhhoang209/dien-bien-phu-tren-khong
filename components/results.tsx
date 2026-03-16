@@ -1,6 +1,6 @@
 export function Results() {
   return (
-    <section className="py-20 px-4 bg-background">
+    <section className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">
