@@ -52,7 +52,7 @@ export function About() {
             </div>
             <div>
               <div className="text-4xl font-bold text-accent mb-2">81</div>
-              <p className="text-foreground/80">Máy bay B-52 bị bắn hạ, gây tổn thất nặng nề cho không quân Mỹ</p>
+              <p className="text-foreground/80">Phi cơ bị bắn rơi, gồm có 34 B-52 (16 chiếc rơi tại chỗ) và 5 chiếc F-111, gây tổn thất nặng nề cho không quân Mỹ</p>
             </div>
             <div>
               <div className="text-4xl font-bold text-accent mb-2">∞</div>

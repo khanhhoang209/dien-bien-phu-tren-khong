@@ -42,7 +42,7 @@ export function Phases() {
       dates: '29 tháng 12 - 1973',
       description: 'Chiến dịch kết thúc với thắng lợi vẻ vang của Việt Nam, Mỹ phải chấp nhận thất bại và ký kết Hiệp định Paris',
       details: [
-        'Tổng cộng 81 máy bay B-52 bị bắn hạ',
+        'Tổng cộng 81 phi cơ bị bắn rơi, gồm có 34 B-52 (16 chiếc rơi tại chỗ) và 5 chiếc F-111',
         'Trên 1.600 máy bay quân sự Mỹ bị tiêu diệt',
         'Chiến dịch ném bom Linebacker II phải dừng lại',
         'Hiệp định Paris được ký kết (27.1.1973)',
@@ -122,8 +122,8 @@ export function Phases() {
               <p className="text-foreground/80">Chiến dịch ném bom liên tục</p>
             </div>
             <div>
-              <p className="text-accent font-bold text-3xl mb-2">81 B-52</p>
-              <p className="text-foreground/80">Máy bay chiến lược bị bắn hạ</p>
+              <p className="text-accent font-bold text-3xl mb-2">81 Phi Cơ</p>
+              <p className="text-foreground/80">Bị bắn rơi (gồm 34 B-52 và 5 F-111)</p>
             </div>
             <div>
               <p className="text-accent font-bold text-3xl mb-2">100%</p>
