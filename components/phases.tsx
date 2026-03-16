@@ -1,10 +1,22 @@
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
+import { Dialog, DialogClose, DialogContent, DialogTitle } from '@/components/ui/dialog'
+
 export function Phases() {
+  const [zoomedMap, setZoomedMap] = useState<null | {
+    src: string
+    title: string
+  }>(null)
+
   const phases = [
     {
       number: 1,
       name: 'Giai Đoạn Chuẩn Bị',
       dates: '1960 - 1972',
-      description: 'Xây dựng hệ thống phòng thủ, huấn luyện nhân lực, chuẩn bị sức mạnh quân sự để ứng phó với cuộc tấn công',
+      description:
+        'Xây dựng hệ thống phòng thủ, huấn luyện nhân lực, chuẩn bị sức mạnh quân sự để ứng phó với cuộc tấn công',
       details: [
         'Xây dựng hệ thống radar tiên tiến',
         'Triển khai pháo phòng không S-75 Dvina (SAM)',
@@ -16,7 +28,8 @@ export function Phases() {
       number: 2,
       name: 'Giai Đoạn Toàn Lực Tấn Công',
       dates: '18 - 22 tháng 12',
-      description: 'Hoa Kỳ phát động chiến dịch ném bom B-52 quy mô lớn nhất trong lịch sử tại Hà Nội, Hải Phòng và các vùng phụ cận',
+      description:
+        'Hoa Kỳ phát động chiến dịch ném bom B-52 quy mô lớn nhất trong lịch sử tại Hà Nội, Hải Phòng và các vùng phụ cận',
       details: [
         'B-52 ném bom liên tục ngày đêm',
         'Sử dụng hơn 15.000 tấn bom',
@@ -28,7 +41,8 @@ export function Phases() {
       number: 3,
       name: 'Giai Đoạn Tiếp Tục Chiến Đấu',
       dates: '23 - 29 tháng 12',
-      description: 'Không quân Mỹ tiếp tục chiến dịch với cường độ cao hơn nhưng gặp phải sự kháng cự quả cảm của không quân Việt Nam',
+      description:
+        'Không quân Mỹ tiếp tục chiến dịch với cường độ cao hơn nhưng gặp phải sự kháng cự quả cảm của không quân Việt Nam',
       details: [
         'Pháo thủ Việt Nam bắn hạ 23 máy bay B-52',
         'Chiến lược phòng thủ cơ động được áp dụng hiệu quả',
@@ -40,13 +54,32 @@ export function Phases() {
       number: 4,
       name: 'Giai Đoạn Kết Thúc & Thắng Lợi',
       dates: '29 tháng 12 - 1973',
-      description: 'Chiến dịch kết thúc với thắng lợi vẻ vang của Việt Nam, Mỹ phải chấp nhận thất bại và ký kết Hiệp định Paris',
+      description:
+        'Chiến dịch kết thúc với thắng lợi vẻ vang của Việt Nam, Mỹ phải chấp nhận thất bại và ký kết Hiệp định Paris',
       details: [
         'Tổng cộng 81 phi cơ bị bắn rơi, gồm có 34 B-52 (16 chiếc rơi tại chỗ) và 5 chiếc F-111',
         'Trên 1.600 máy bay quân sự Mỹ bị tiêu diệt',
         'Chiến dịch ném bom Linebacker II phải dừng lại',
         'Hiệp định Paris được ký kết (27.1.1973)',
       ],
+    },
+  ]
+
+  const campaignMaps = [
+    {
+      src: '/map-1.jpg',
+      title: 'Bản đồ chiến dịch 1',
+      description: 'Khu vực mục tiêu trọng điểm tại Hà Nội và vùng phụ cận trong giai đoạn đầu.',
+    },
+    {
+      src: '/map-2.jpg',
+      title: 'Bản đồ chiến dịch 2',
+      description: 'Diễn biến thế trận phòng không và hướng tiếp cận của không quân Mỹ.',
+    },
+    {
+      src: '/map-3.jpg',
+      title: 'Bản đồ chiến dịch 3',
+      description: 'Toàn cảnh phân bố hỏa lực và kết quả đánh chặn trong các ngày cuối.',
     },
   ]
 
@@ -83,17 +116,13 @@ export function Phases() {
                 {/* Phase info */}
                 <div className="flex-grow">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                      {phase.name}
-                    </h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{phase.name}</h3>
                     <span className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-lg font-semibold w-fit">
                       {phase.dates}
                     </span>
                   </div>
 
-                  <p className="text-foreground/80 mb-6 leading-relaxed">
-                    {phase.description}
-                  </p>
+                  <p className="text-foreground/80 mb-6 leading-relaxed">{phase.description}</p>
 
                   {/* Details list */}
                   <div className="grid md:grid-cols-2 gap-4">
@@ -131,7 +160,79 @@ export function Phases() {
             </div>
           </div>
         </div>
+
+        <div className="mt-16">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3">
+              <span className="text-accent">Bản Đồ</span> Chiến Dịch
+            </h3>
+            <p className="text-foreground/80 max-w-3xl mx-auto">
+              Tổng hợp 3 bản đồ mô tả khu vực tác chiến và diễn biến không chiến trong chiến dịch
+              Điện Biên Phủ Trên Không.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {campaignMaps.map((map) => (
+              <figure
+                key={map.src}
+                className="overflow-hidden rounded-xl border border-border bg-card/60 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-accent/60"
+              >
+                <button
+                  type="button"
+                  onClick={() => setZoomedMap({ src: map.src, title: map.title })}
+                  className="relative aspect-[4/3] w-full cursor-zoom-in"
+                  aria-label={`Phóng to ${map.title}`}
+                >
+                  <Image
+                    src={map.src}
+                    alt={map.title}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </button>
+                <figcaption className="p-4">
+                  <h4 className="text-lg font-semibold text-foreground mb-1">{map.title}</h4>
+                  <p className="text-sm text-foreground/75">{map.description}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <Dialog
+        open={!!zoomedMap}
+        onOpenChange={(open) => {
+          if (!open) setZoomedMap(null)
+        }}
+      >
+        <DialogContent
+          showCloseButton={false}
+          className="w-[92vw] max-w-[92vw] sm:max-w-[92vw] border-0 bg-transparent p-1 shadow-none sm:p-1"
+        >
+          <DialogTitle className="sr-only">{zoomedMap?.title ?? 'Ban do chien dich'}</DialogTitle>
+          {zoomedMap && (
+            <div className="relative mx-auto h-[75vh] w-full">
+              <DialogClose
+                className="absolute left-1/2 top-2 z-10 -translate-x-1/2 rounded-full bg-black/55 px-3 py-1 text-lg font-semibold leading-none text-white hover:bg-black/70"
+                aria-label="Dong"
+              >
+                X
+              </DialogClose>
+              <Image
+                src={zoomedMap.src}
+                alt={zoomedMap.title}
+                fill
+                className="object-contain"
+                sizes="92vw"
+                priority
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

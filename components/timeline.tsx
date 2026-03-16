@@ -6,64 +6,106 @@ const timelineEvents = [
   {
     date: '18/12/1972',
     title: 'Mỹ Mở Cuộc Tấn Công',
-    description: 'Mỹ bắt đầu ném bom Hà Nội, Hải Phòng và các khu vực miền Bắc bằng máy bay B-52 Stratofortress. Cuộc không kích quy mô lớn chính thức bắt đầu.',
-    intensity: 'high'
+    description:
+      'Mỹ bắt đầu ném bom Hà Nội, Hải Phòng và các khu vực miền Bắc bằng máy bay B-52 Stratofortress. Cuộc không kích quy mô lớn chính thức bắt đầu.',
+    intensity: 'high',
+    image: '/map-1.jpg',
   },
   {
     date: '19/12/1972',
     title: 'Quân Dân Phòng Không Đánh Trả',
-    description: 'Mỹ tiếp tục các đợt ném bom quy mô lớn. Quân và dân miền Bắc tổ chức phòng không đánh trả quyết liệt, bắn rơi một số máy bay Mỹ.',
-    intensity: 'high'
+    description:
+      'Mỹ tiếp tục các đợt ném bom quy mô lớn. Quân và dân miền Bắc tổ chức phòng không đánh trả quyết liệt, bắn rơi một số máy bay Mỹ.',
+    intensity: 'high',
+    image: '/fighter-plane.jpg',
   },
   {
     date: '20/12/1972',
     title: 'Trận Chiến Ác Liệt',
-    description: 'Các trận đánh trên bầu trời Hà Nội diễn ra ác liệt. Lực lượng phòng không bắn rơi thêm nhiều máy bay, trong đó có B-52 Stratofortress.',
-    intensity: 'critical'
+    description:
+      'Các trận đánh trên bầu trời Hà Nội diễn ra ác liệt. Lực lượng phòng không bắn rơi thêm nhiều máy bay, trong đó có B-52 Stratofortress.',
+    intensity: 'critical',
+    image: '/map-2.jpg',
   },
   {
-    date: '21-23/12/1972',
-    title: 'Chiến Đấu Quyết Liệt',
-    description: 'Không quân Mỹ tiếp tục tăng cường đánh phá. Hệ thống phòng không của Việt Nam (tên lửa, pháo cao xạ, không quân tiêm kích) phối hợp chặt chẽ và gây tổn thất lớn cho đối phương.',
-    intensity: 'critical'
+    date: '21/12/1972',
+    title: 'Mỹ Tăng Cường Đánh Phá',
+    description:
+      'Không quân Mỹ tăng cường oanh tạc. Hệ thống phòng không Việt Nam tiếp tục phối hợp tên lửa, pháo cao xạ và không quân tiêm kích để đánh trả.',
+    intensity: 'critical',
+    image: '/map-2.jpg',
   },
   {
-    date: '24-25/12/1972',
-    title: 'Tạm Ngừng và Chuẩn Bị',
-    description: 'Mỹ tạm ngừng nem bom nhân dịp Giáng Sinh. Hoạt động ném bom giảm, Mỹ chuẩn bị cho các đợt tấn công tiếp theo.',
-    intensity: 'low'
+    date: '22/12/1972',
+    title: 'Đánh Phá Hà Nội - Hải Phòng',
+    description:
+      'Mỹ tiếp tục ném bom vào nhiều mục tiêu ở Hà Nội và Hải Phòng nhưng bị lực lượng phòng không đánh trả mạnh, gây thêm tổn thất.',
+    intensity: 'critical',
+    image: '/map-1.jpg',
+  },
+  {
+    date: '23/12/1972',
+    title: 'Tổn Thất Tiếp Tục Gia Tăng',
+    description:
+      'Các trận chiến phòng không vẫn diễn ra quyết liệt. Quân và dân miền Bắc bắn rơi thêm nhiều máy bay Mỹ.',
+    intensity: 'critical',
+    image: '/map-3.jpg',
+  },
+  {
+    date: '24/12/1972',
+    title: 'Tạm Ngừng Dịp Giáng Sinh',
+    description:
+      'Mỹ tạm ngừng ném bom trong thời gian ngắn nhân dịp lễ Giáng sinh, tạo quãng lặng hiếm hoi giữa chiến dịch.',
+    intensity: 'low',
+    image: '/map-3.jpg',
+  },
+  {
+    date: '25/12/1972',
+    title: 'Giảm Cường Độ, Chuẩn Bị Đợt Mới',
+    description:
+      'Hoạt động ném bom giảm, Mỹ tiếp tục chuẩn bị cho các đợt tấn công tiếp theo với quy mô lớn hơn.',
+    intensity: 'low',
+    image: '/fighter-plane.jpg',
   },
   {
     date: '26/12/1972',
     title: 'Trận Chiến Lớn Nhất',
-    description: 'Mỹ mở đợt ném bom lớn nhất trong chiến dịch vào Hà Nội. Đây là trận chiến ác liệt nhất. Nhiều máy bay B-52 bị bắn rơi. Tổn thất của Mỹ lên tới đỉnh điểm.',
-    intensity: 'critical'
+    description:
+      'Mỹ mở đợt ném bom lớn nhất trong chiến dịch vào Hà Nội. Đây là trận chiến ác liệt nhất. Nhiều máy bay B-52 bị bắn rơi. Tổn thất của Mỹ lên tới đỉnh điểm.',
+    intensity: 'critical',
+    image: '/map-2.jpg',
   },
   {
     date: '27/12/1972',
     title: 'Chiến Đấu Không Ngừng',
-    description: 'Quân và dân miền Bắc tiếp tục chiến đấu quyết liệt. Bắn rơi thêm nhiều máy bay Mỹ. Phi công Phạm Tuân anh dũng bắn rơi chiếc B-52 ném bom chiến lược.',
-    intensity: 'critical'
+    description:
+      'Quân và dân miền Bắc tiếp tục chiến đấu quyết liệt. Bắn rơi thêm nhiều máy bay Mỹ. Phi công Phạm Tuân anh dũng bắn rơi chiếc B-52 ném bom chiến lược.',
+    intensity: 'critical',
+    image: '/PhamTuan.jpg',
   },
   {
     date: '28/12/1972',
     title: 'Cường Độ Giảm',
-    description: 'Sau những tổn thất nặng nề, cường độ ném bom của Mỹ giảm đáng kể. Tình thế đã thay đổi.',
-    intensity: 'medium'
+    description:
+      'Sau những tổn thất nặng nề, cường độ ném bom của Mỹ giảm đáng kể. Tình thế đã thay đổi.',
+    intensity: 'medium',
+    image: '/map-3.jpg',
   },
   {
     date: '29/12/1972',
     title: 'Tuyên Bố Ngừng Ném Bom',
-    description: 'Mỹ tuyên bố chấm dứt ném bom miền Bắc Việt Nam, kết thúc chiến dịch Operation Linebacker II. Chiến thắng "Điện Biên Phủ trên không" được công bố.',
-    intensity: 'victory'
-  }
+    description:
+      'Mỹ tuyên bố chấm dứt ném bom miền Bắc Việt Nam, kết thúc chiến dịch Operation Linebacker II. Chiến thắng "Điện Biên Phủ trên không" được công bố.',
+    intensity: 'victory',
+    image: '/map-1.jpg',
+  },
 ]
 
 export function Timeline() {
   const [selectedEvent, setSelectedEvent] = useState<number | null>(null)
 
   return (
-    <section id="timeline" className="py-20 px-4 bg-background">
+    <section id="timeline" className="py-20 px-4 bg-background scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">
@@ -80,26 +122,30 @@ export function Timeline() {
             <div key={index} className="flex gap-6 cursor-pointer">
               {/* Timeline dot and line */}
               <div className="flex flex-col items-center">
-                <div className={`w-4 h-4 rounded-full ${
-                  event.intensity === 'victory' 
-                    ? 'bg-accent ring-4 ring-accent/30' 
-                    : event.intensity === 'critical' 
-                    ? 'bg-accent' 
-                    : event.intensity === 'high'
-                    ? 'bg-accent/80'
-                    : 'bg-muted/60'
-                }`}></div>
+                <div
+                  className={`w-4 h-4 rounded-full ${
+                    event.intensity === 'victory'
+                      ? 'bg-accent ring-4 ring-accent/30'
+                      : event.intensity === 'critical'
+                        ? 'bg-accent'
+                        : event.intensity === 'high'
+                          ? 'bg-accent/80'
+                          : 'bg-muted/60'
+                  }`}
+                ></div>
                 {index < timelineEvents.length - 1 && (
-                  <div className={`w-0.5 h-24 ${
-                    event.intensity === 'critical' || event.intensity === 'victory'
-                      ? 'bg-accent/40'
-                      : 'bg-muted/30'
-                  }`}></div>
+                  <div
+                    className={`w-0.5 h-24 ${
+                      event.intensity === 'critical' || event.intensity === 'victory'
+                        ? 'bg-accent/40'
+                        : 'bg-muted/30'
+                    }`}
+                  ></div>
                 )}
               </div>
 
               {/* Event content */}
-              <div 
+              <div
                 className="flex-1 pb-6 bg-card rounded-lg p-6 border border-card-foreground/10 hover:border-accent/50 transition-all"
                 onClick={() => setSelectedEvent(selectedEvent === index ? null : index)}
               >
@@ -108,21 +154,31 @@ export function Timeline() {
                     <h3 className="text-lg font-bold text-accent mb-1">{event.date}</h3>
                     <h4 className="text-xl font-semibold text-foreground mb-2">{event.title}</h4>
                   </div>
-                  <span className={`text-xs px-3 py-1 rounded-full whitespace-nowrap ml-4 ${
-                    event.intensity === 'victory'
-                      ? 'bg-accent/20 text-accent'
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full whitespace-nowrap ml-4 ${
+                      event.intensity === 'victory'
+                        ? 'bg-accent/20 text-accent'
+                        : event.intensity === 'critical'
+                          ? 'bg-red-500/20 text-red-400'
+                          : event.intensity === 'high'
+                            ? 'bg-orange-500/20 text-orange-400'
+                            : 'bg-muted/50 text-muted-foreground'
+                    }`}
+                  >
+                    {event.intensity === 'victory'
+                      ? '⭐ CHIẾN THẮNG'
                       : event.intensity === 'critical'
-                      ? 'bg-red-500/20 text-red-400'
-                      : event.intensity === 'high'
-                      ? 'bg-orange-500/20 text-orange-400'
-                      : 'bg-muted/50 text-muted-foreground'
-                  }`}>
-                    {event.intensity === 'victory' ? '⭐ CHIẾN THẮNG' : event.intensity === 'critical' ? '🔥 KỊCH LIỆT' : event.intensity === 'high' ? '⚡ MẠNH' : 'GIẢM'}
+                        ? '🔥 KỊCH LIỆT'
+                        : event.intensity === 'high'
+                          ? '⚡ MẠNH'
+                          : 'GIẢM'}
                   </span>
                 </div>
-                
+
                 {selectedEvent === index && (
-                  <p className="text-foreground/80 leading-relaxed mt-3 animate-in fade-in">{event.description}</p>
+                  <div className="mt-3 animate-in fade-in">
+                    <p className="text-foreground/80 leading-relaxed">{event.description}</p>
+                  </div>
                 )}
               </div>
             </div>
