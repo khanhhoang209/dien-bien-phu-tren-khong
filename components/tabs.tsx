@@ -31,7 +31,7 @@ export function Tabs() {
       {/* Tab Navigation */}
       <div className="sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex gap-2 overflow-x-auto">
+          <div className="flex gap-2 overflow-x-auto overflow-y-hidden overscroll-y-none no-scrollbar">
             {tabs.map((tab) => (
               <button
                 key={tab.id}

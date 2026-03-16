@@ -1,14 +1,22 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Noto_Sans, Roboto_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const notoSans = Noto_Sans({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-ui',
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-code',
+})
 
 export const metadata: Metadata = {
   title: 'Chiến Thắng Điện Biên Phủ Trên Không',
-  description: 'Trang web tưởng niệm chiến thắng Điện Biên Phủ trên không từ 18-29 tháng 12 năm 1972 - một chiến thắng vĩ đại của dân tộc Việt Nam',
+  description:
+    'Trang web tưởng niệm chiến thắng Điện Biên Phủ trên không từ 18-29 tháng 12 năm 1972 - một chiến thắng vĩ đại của dân tộc Việt Nam',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -36,7 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className="font-sans antialiased bg-background text-foreground">
+      <body
+        className={`${notoSans.variable} ${robotoMono.variable} font-sans antialiased bg-background text-foreground`}
+      >
         {children}
         <Analytics />
       </body>

@@ -1,6 +1,6 @@
 export function Results() {
   return (
-    <section className="py-20 px-4">
+    <section id="results" className="py-20 px-4 bg-background scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">
@@ -22,8 +22,9 @@ export function Results() {
               <p className="text-foreground/90">
                 Hệ thống phòng không gồm tên lửa, pháo cao xạ và không quân đã phối hợp chặt chẽ,
                 bắn rơi <span className="text-accent font-bold">hàng chục máy bay Mỹ</span>, trong
-                đó có nhiều máy bay ném bom chiến lược B-52 Stratofortress – loại máy bay được coi
-                là "pháo đài bay" hiện đại nhất của Hoa Kỳ lúc bấy giờ.
+                đó có nhiều B-52 Stratofortress - loại "pháo đài bay" hiện đại bậc nhất của Hoa Kỳ.
+                Theo nhiều nguồn tài liệu lịch sử, đây là mức tổn thất lớn đối với không quân chiến
+                lược Mỹ trong một chiến dịch ngắn ngày.
               </p>
             </div>
 
@@ -40,7 +41,8 @@ export function Results() {
             <div className="bg-card rounded-lg p-6 border border-card-foreground/10">
               <h4 className="text-xl font-bold text-foreground mb-3">Tuyên Bố Ngừng Ném Bom</h4>
               <p className="text-foreground/90">
-                Ngày 30/12/1972, Tổng thống Mỹ Richard Nixon tuyên bố{' '}
+                Ngày <span className="text-accent font-bold">30/12/1972</span>, Tổng thống Mỹ
+                Richard Nixon tuyên bố{' '}
                 <span className="text-accent font-bold">
                   ngừng ném bom miền Bắc Việt Nam từ vĩ tuyến 20 trở ra
                 </span>
@@ -87,8 +89,25 @@ export function Results() {
                 <div>
                   <h4 className="text-lg font-bold text-foreground mb-2">Dấu Mốc Quan Trọng</h4>
                   <p className="text-foreground/90">
-                    Trở thành một dấu mốc quan trọng trong lịch sử kháng chiến chống Mỹ, có ảnh
-                    hưởng lớn đến cục diện chính trị - quân sự của toàn chiến tranh.
+                    Trở thành dấu mốc quan trọng trong lịch sử kháng chiến chống Mỹ, tác động mạnh
+                    đến cục diện chính trị - quân sự và tiến trình kết thúc sự can thiệp quân sự
+                    trực tiếp của Hoa Kỳ tại Việt Nam.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 border border-card-foreground/10">
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">🏛️</span>
+                <div>
+                  <h4 className="text-lg font-bold text-foreground mb-2">
+                    Tên Gọi "Điện Biên Phủ Trên Không"
+                  </h4>
+                  <p className="text-foreground/90">
+                    Chiến thắng được gọi là "Battle of Dien Bien Phu in the Air" để so sánh với
+                    chiến thắng Điện Biên Phủ năm 1954. Cả hai đều là những bước ngoặt chiến lược,
+                    góp phần thay đổi cục diện chiến tranh và mở đường cho giải pháp hòa bình.
                   </p>
                 </div>
               </div>
