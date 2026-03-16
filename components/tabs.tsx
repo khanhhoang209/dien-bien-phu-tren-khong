@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Hero } from '@/components/hero'
 import { Context } from '@/components/context'
 import { Timeline } from '@/components/timeline'
@@ -13,8 +13,71 @@ import { BattleBackground } from '@/components/battle-background'
 
 type TabType = 'overview' | 'phases' | 'about' | 'quiz'
 
+const hashToTab: Record<string, TabType> = {
+  overview: 'overview',
+  phases: 'phases',
+  about: 'about',
+  quiz: 'quiz',
+}
+
+const overviewSections = new Set(['context', 'timeline', 'heroes', 'results'])
+const STICKY_NAV_OFFSET = 96
+
 export function Tabs() {
   const [activeTab, setActiveTab] = useState<TabType>('overview')
+
+  const scrollToHashTarget = (targetId: string) => {
+    const target = document.getElementById(targetId)
+    if (!target) return
+
+    const top = target.getBoundingClientRect().top + window.scrollY - STICKY_NAV_OFFSET
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    const applyHashState = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase()
+
+      if (!hash) {
+        return
+      }
+
+      const tabFromHash = hashToTab[hash]
+
+      if (tabFromHash) {
+        setActiveTab(tabFromHash)
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            scrollToHashTarget(hash)
+          })
+        })
+
+        return
+      }
+
+      if (overviewSections.has(hash)) {
+        setActiveTab('overview')
+        requestAnimationFrame(() => {
+          scrollToHashTarget(hash)
+        })
+      }
+    }
+
+    applyHashState()
+    window.addEventListener('hashchange', applyHashState)
+
+    return () => window.removeEventListener('hashchange', applyHashState)
+  }, [])
+
+  const handleTabClick = (tabId: TabType) => {
+    setActiveTab(tabId)
+    const nextHash = tabId === 'overview' ? '' : `#${tabId}`
+
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(null, '', `${window.location.pathname}${nextHash}`)
+    }
+  }
 
   const tabs: { id: TabType; label: string; icon: string }[] = [
     { id: 'overview', label: 'Tổng Quan', icon: '🏛️' },
@@ -35,7 +98,7 @@ export function Tabs() {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={`py-4 px-6 font-semibold text-lg transition-all whitespace-nowrap relative group ${
                   activeTab === tab.id
                     ? 'text-accent'
@@ -59,10 +122,10 @@ export function Tabs() {
       </div>
 
       {/* Tab Content */}
-      <div className="w-full relative z-20">
+      <div className="w-full relative z-30">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
-          <div className="animate-in fade-in duration-500">
+          <div id="overview" className="animate-in fade-in duration-500 scroll-mt-20">
             <Hero />
             <Context />
             <Timeline />
@@ -73,8 +136,8 @@ export function Tabs() {
 
         {/* Phases Tab */}
         {activeTab === 'phases' && (
-          <div className="animate-in fade-in duration-500">
-            <div className="py-16 px-4 bg-background">
+          <div id="phases" className="animate-in fade-in duration-500 scroll-mt-20">
+            <div className="py-16 px-4 bg-transparent">
               <div className="max-w-6xl mx-auto">
                 <h1 className="text-6xl font-bold text-center mb-4">
                   <span className="text-accent">GIAI ĐOẠN</span> CHIẾN DỊCH
@@ -88,8 +151,8 @@ export function Tabs() {
 
         {/* About Tab */}
         {activeTab === 'about' && (
-          <div className="animate-in fade-in duration-500">
-            <div className="py-16 px-4 bg-background">
+          <div id="about" className="animate-in fade-in duration-500 scroll-mt-20">
+            <div className="py-16 px-4 bg-transparent">
               <div className="max-w-6xl mx-auto">
                 <h1 className="text-6xl font-bold text-center mb-4">
                   <span className="text-accent">THÔNG TIN</span> TRANG WEB
@@ -103,8 +166,8 @@ export function Tabs() {
 
         {/* Quiz Tab */}
         {activeTab === 'quiz' && (
-          <div className="animate-in fade-in duration-500">
-            <div className="py-16 px-4 bg-background">
+          <div id="quiz" className="animate-in fade-in duration-500 scroll-mt-20">
+            <div className="py-16 px-4 bg-transparent">
               <div className="max-w-6xl mx-auto">
                 <h1 className="text-6xl font-bold text-center mb-4">
                   <span className="text-accent">QUIZ</span>

@@ -1,6 +1,31 @@
 'use client'
 
+const STICKY_NAV_OFFSET = 96
+
 export function Footer() {
+  const scrollToHashTarget = (hash: string) => {
+    const targetId = hash.replace('#', '')
+    const target = document.getElementById(targetId)
+    if (!target) return
+
+    const top = target.getBoundingClientRect().top + window.scrollY - STICKY_NAV_OFFSET
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+  }
+
+  const navigateToSection = (hash: string) => {
+    const cleanHash = hash.startsWith('#') ? hash : `#${hash}`
+    const currentHash = window.location.hash
+
+    if (currentHash !== cleanHash) {
+      window.history.pushState(null, '', `${window.location.pathname}${cleanHash}`)
+      window.dispatchEvent(new HashChangeEvent('hashchange'))
+      return
+    }
+
+    // Re-click on the same target should not reload or reset tab content.
+    scrollToHashTarget(cleanHash)
+  }
+
   return (
     <footer className="bg-card border-t border-card-foreground/10">
       <div className="max-w-6xl mx-auto px-4 py-12">
@@ -20,27 +45,98 @@ export function Footer() {
             <h4 className="text-lg font-bold text-accent mb-4">Nhanh Chóng</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <a href="#context" className="hover:text-accent transition-colors">
+                <a
+                  href="#overview"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#overview')
+                  }}
+                >
+                  → Tổng Quan
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#phases"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#phases')
+                  }}
+                >
+                  → Các Giai Đoạn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#about')
+                  }}
+                >
+                  → Về Chúng Tôi
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#context"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#context')
+                  }}
+                >
                   → Bối Cảnh Chiến Dịch
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="hover:text-accent transition-colors">
+                <a
+                  href="#timeline"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#timeline')
+                  }}
+                >
                   → 12 Ngày Đêm
                 </a>
               </li>
               <li>
-                <a href="#heroes" className="hover:text-accent transition-colors">
+                <a
+                  href="#heroes"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#heroes')
+                  }}
+                >
                   → Những Người Hùng
                 </a>
               </li>
               <li>
-                <a href="#results" className="hover:text-accent transition-colors">
+                <a
+                  href="#results"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#results')
+                  }}
+                >
                   → Kết Quả Và Ý Nghĩa
                 </a>
               </li>
               <li>
-                <a href="#quiz" className="hover:text-accent transition-colors">
+                <a
+                  href="#quiz"
+                  className="hover:text-accent transition-colors"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    navigateToSection('#quiz')
+                  }}
+                >
                   → Quiz
                 </a>
               </li>
@@ -57,10 +153,6 @@ export function Footer() {
             <p className="text-muted-foreground">
               <span className="block font-semibold text-foreground">Địa Điểm</span>
               Hà Nội, Hải Phòng, Miền Bắc Việt Nam
-            </p>
-            <p className="text-muted-foreground mt-3">
-              <span className="block font-semibold text-foreground">Prototype</span>
-              Phiên bản prototype tương tác của dự án
             </p>
           </div>
         </div>
