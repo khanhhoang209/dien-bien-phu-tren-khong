@@ -61,6 +61,43 @@ const quizQuestions = [
     explanation:
       'Chiến thắng được gọi là "Điện Biên Phủ trên không" để so sánh với chiến thắng lịch sử năm 1954 khi Việt Nam đánh bại quân đội Pháp.',
   },
+  {
+    id: 7,
+    question: 'Tổng cộng có bao nhiêu máy bay B-52 bị bắn rơi trong 12 ngày đêm?',
+    options: ['24 chiếc', '30 chiếc', '34 chiếc', '38 chiếc'],
+    correct: 2,
+    explanation:
+      'Trong 12 ngày đêm, quân và dân ta đã bắn rơi 81 máy bay các loại, trong đó có 34 chiếc B-52.',
+  },
+  {
+    id: 8,
+    question: 'Ngoài Hà Nội, thành phố nào là mục tiêu đánh phá trọng điểm của máy bay B-52?',
+    options: ['Đà Nẵng', 'Hải Phòng', 'Thanh Hóa', 'Vinh'],
+    correct: 1,
+    explanation:
+      'Hải Phòng là mục tiêu đánh phá lớn thứ hai sau Hà Nội trong chiến dịch Linebacker II.',
+  },
+  {
+    id: 9,
+    question: 'Loại tên lửa nào của Việt Nam đã bắn rơi nhiều B-52 nhất?',
+    options: ['S-75 Dvina (SAM-2)', 'S-125 Neva (SAM-3)', 'Strela-2', 'S-300'],
+    correct: 0,
+    explanation:
+      'Tên lửa SAM-2 (S-75 Dvina) là vũ khí chủ lực của bộ đội Tên lửa phòng không Việt Nam đã bắn rơi phần lớn máy bay B-52.',
+  },
+  {
+    id: 10,
+    question: 'Sau thất bại trong chiến dịch này, Mỹ đã phải làm gì?',
+    options: [
+      'Tiếp tục leo thang chiến tranh',
+      'Ký Hiệp định Paris và rút quân về nước',
+      'Tăng cường quân số vào miền Nam',
+      'Hủy bỏ đàm phán tại Paris',
+    ],
+    correct: 1,
+    explanation:
+      'Thất bại trong chiến dịch "Điện Biên Phủ trên không" đã buộc Mỹ phải ký Hiệp định Paris (27/1/1973), chấm dứt chiến tranh, lập lại hòa bình ở Việt Nam.',
+  },
 ]
 
 export function Quiz() {
@@ -190,7 +227,7 @@ export function Quiz() {
               >
                 <div className="flex items-center gap-3">
                   <div
-                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
                       selectedAnswer === index
                         ? isCorrect
                           ? 'border-green-500 bg-green-500'
