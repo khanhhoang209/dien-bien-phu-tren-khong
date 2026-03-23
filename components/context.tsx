@@ -28,9 +28,10 @@ export function Context() {
               Việt Nam Dân chủ Cộng hòa chấp nhận các điều kiện đàm phán có lợi cho Hoa Kỳ.
             </p>
             <p className="text-foreground leading-relaxed">
-              Trong bối cảnh đó, các cuộc đàm phán hòa bình tại Paris vẫn diễn ra căng thẳng và
-              nhiều lần rơi vào bế tắc, khiến tình hình quân sự - chính trị cuối năm 1972 trở nên
-              đặc biệt nhạy cảm.
+              Dù đã đạt được thỏa thuận sơ bộ vào tháng 10/1972, nhưng sau đó phía Hoa Kỳ trì hoãn
+              việc ký kết và đòi sửa đổi nhiều điều khoản quan trọng. Điều này khiến các cuộc đàm
+              phán tại Paris rơi vào bế tắc, đẩy tình hình quân sự - chính trị cuối năm 1972 trở nên
+              đặc biệt căng thẳng.
             </p>
           </div>
 

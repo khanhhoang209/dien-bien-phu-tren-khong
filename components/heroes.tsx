@@ -27,7 +27,7 @@ const heroes = [
   },
   {
     id: 3,
-    name: 'Vũ Xuân Thiệu',
+    name: 'Vũ Xuân Thiều',
     rank: 'Phi công MiG-21',
     birth: '1945 - 1972',
     achievement: 'Hy sinh anh dũng - Đâm vào B-52',
