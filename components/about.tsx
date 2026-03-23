@@ -24,7 +24,9 @@ export function About() {
               <h3 className="text-2xl font-bold">Sứ Mệnh</h3>
             </div>
             <p className="text-foreground/80 leading-relaxed">
-              Lưu giữ và truyền tải những giá trị lịch sử của cuộc Chiến thắng Điện Biên Phủ Trên Không cho các thế hệ tiếp theo, giáo dục về tinh thần anh dũng, bất khuất và độc lập tự chủ của dân tộc Việt Nam.
+              Lưu giữ và truyền tải những giá trị lịch sử của cuộc Chiến thắng Điện Biên Phủ Trên
+              Không cho các thế hệ tiếp theo, giáo dục về tinh thần anh dũng, bất khuất và độc lập
+              tự chủ của dân tộc Việt Nam.
             </p>
           </div>
 
@@ -37,7 +39,8 @@ export function About() {
               <h3 className="text-2xl font-bold">Tầm Nhìn</h3>
             </div>
             <p className="text-foreground/80 leading-relaxed">
-              Xây dựng một không gian học tập tương tác, kết nối mọi người với lịch sử quốc gia, khơi dậy niềm tự hào dân tộc và truyền lửa yêu nước cho thế hệ tương lai.
+              Xây dựng một không gian học tập tương tác, kết nối mọi người với lịch sử quốc gia,
+              khơi dậy niềm tự hào dân tộc và truyền lửa yêu nước cho thế hệ tương lai.
             </p>
           </div>
         </div>
@@ -48,15 +51,22 @@ export function About() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="text-4xl font-bold text-accent mb-2">12</div>
-              <p className="text-foreground/80">Ngày đêm chiến đấu liên tục từ 18-29 tháng 12 năm 1972</p>
+              <p className="text-foreground/80">
+                Ngày đêm chiến đấu liên tục từ 18-29 tháng 12 năm 1972
+              </p>
             </div>
             <div>
               <div className="text-4xl font-bold text-accent mb-2">81</div>
-              <p className="text-foreground/80">Phi cơ bị bắn rơi, gồm có 34 B-52 (16 chiếc rơi tại chỗ) và 5 chiếc F-111, gây tổn thất nặng nề cho không quân Mỹ</p>
+              <p className="text-foreground/80">
+                Phi cơ bị bắn rơi, gồm có 34 B-52 (16 chiếc rơi tại chỗ) và 5 chiếc F-111, gây tổn
+                thất nặng nề cho không quân Mỹ
+              </p>
             </div>
             <div>
               <div className="text-4xl font-bold text-accent mb-2">∞</div>
-              <p className="text-foreground/80">Tinh thần bất khuất vĩnh viễn được lưu lại trong lòng dân tộc</p>
+              <p className="text-foreground/80">
+                Tinh thần bất khuất vĩnh viễn được lưu lại trong lòng dân tộc
+              </p>
             </div>
           </div>
         </div>
@@ -70,27 +80,41 @@ export function About() {
                 <span>📝</span> Soạn Nội Dung
               </h4>
               <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Vũ Khánh Huyền</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Lê Vĩnh Khánh Huyền</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Khánh Đoan</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Lê Mai Phương</li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Vũ Đinh Khánh Hà
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Lê Vĩnh Khánh Huyền
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Dương Khánh Đoan
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Lê Mai Phương
+                </li>
               </ul>
             </div>
-            
+
             <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
               <h4 className="text-xl font-semibold mb-4 text-accent flex items-center gap-2">
                 <span>💻</span> Code
               </h4>
               <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Lê Hoàng Khánh</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Nguyễn Minh Quân</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent/50"></span> Trịnh Tiến Đạt</li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Lê Hoàng Khánh
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Nguyễn Minh Quân
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent/50"></span> Trịnh Tiến Đạt
+                </li>
               </ul>
             </div>
           </div>
 
           <h3 className="text-2xl font-bold mb-6">AI Tool Used</h3>
-          <a 
+          <a
             href="https://docs.google.com/document/d/1ekAwiGDDpJVN97xZB2EQmbT181F1pkmywc_-0-Bp_Fk/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
